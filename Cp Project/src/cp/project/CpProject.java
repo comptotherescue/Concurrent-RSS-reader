@@ -16,6 +16,8 @@ public class CpProject {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        MainWindowFrame Frame = new MainWindowFrame();
+        Frame.setVisible(true);
     }
     
 }
