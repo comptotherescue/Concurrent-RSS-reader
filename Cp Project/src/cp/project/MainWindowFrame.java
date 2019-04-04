@@ -1,5 +1,7 @@
 package cp.project;
 
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -78,7 +80,19 @@ public class MainWindowFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        list1.add("AK");
+        ArrayListRSSStoreFeed feedStore = new ArrayListRSSStoreFeed();
+
+RSSFeedRead.read("http://www.espn.com/espn/rss/news", feedStore);
+
+ArrayList<ItemRSSClass> list = feedStore.getList();
+
+for (ItemRSSClass rssItem : list) {
+  System.out.println("guid: " + rssItem.getGuid());
+  System.out.println("title: " + rssItem.getTitle());
+  System.out.println("description: " + rssItem.getDescription());
+  System.out.println("link: " + rssItem.getLink());
+  System.out.println("");
+}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
