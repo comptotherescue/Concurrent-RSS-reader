@@ -26,6 +26,7 @@ public class RSSFeedRead {
             ArrayListRSSStoreFeed ar = (ArrayListRSSStoreFeed) store;
             InsertIntoDB obj = new InsertIntoDB();
             obj.insert(ar.getList().get(0));
+            //
             
         } catch (SAXException e) {
             e.printStackTrace();
