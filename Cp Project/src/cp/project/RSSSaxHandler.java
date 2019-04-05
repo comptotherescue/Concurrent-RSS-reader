@@ -60,7 +60,7 @@ public class RSSSaxHandler extends DefaultHandler{
 	public void endElement(String uri, String localName, String qName) throws SAXException{
 		if(qName.equalsIgnoreCase("item")) {
 			store.add(currentItem);
-			currentItem = null;
+			//currentItem = null;
 		}
 		
 		if(currentElement != null && currentCharacters.length() > 0) {

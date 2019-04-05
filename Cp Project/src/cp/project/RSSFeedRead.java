@@ -20,9 +20,13 @@ public class RSSFeedRead {
         try {
             SAXParserFactory spf = SAXParserFactory.newInstance();
             SAXParser saxParser = spf.newSAXParser();
-
+            
             RSSSaxHandler handler = new RSSSaxHandler(store);
             saxParser.parse(url, handler);
+            ArrayListRSSStoreFeed ar = (ArrayListRSSStoreFeed) store;
+            InsertIntoDB obj = new InsertIntoDB();
+            obj.insert(ar.getList().get(0));
+            
         } catch (SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {
