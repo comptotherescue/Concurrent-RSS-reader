@@ -22,6 +22,7 @@ public class RSSInsertUnique {
 		Document doc = new Document("GUID",itm.getGuid());
 		iIDb = new InsertIntoDB(client,db,Db,collection);
 	    FindIterable<Document> cursor = collection.find(doc);
+	    
 	    if(cursor.first() == null) {
 	       iIDb.insert(itm);
 	    }
