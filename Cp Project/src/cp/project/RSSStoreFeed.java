@@ -5,10 +5,6 @@
  */
 package cp.project;
 
-/**
- *
- * @author akulk
- */
 public interface RSSStoreFeed {
     void clear();
     void add(ItemRSSClass currentItem);
