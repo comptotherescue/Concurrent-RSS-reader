@@ -26,6 +26,7 @@ public class RSSFeedRead {
             ArrayListRSSStoreFeed ar = (ArrayListRSSStoreFeed) store;
             RSSInsertUnique obj = new RSSInsertUnique();
             obj.insertUnique(ar.getList());
+            //
             
         } catch (SAXException e) {
             e.printStackTrace();

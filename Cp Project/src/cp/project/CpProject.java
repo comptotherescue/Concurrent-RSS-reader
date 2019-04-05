@@ -7,30 +7,20 @@ package cp.project;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author akulk
- */
 public class CpProject {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
     	ArrayListRSSStoreFeed feedStore = new ArrayListRSSStoreFeed();
-
-    	RSSFeedRead.read("http://www.espn.com/espn/rss/news", feedStore);
-
-    	ArrayList<ItemRSSClass> list = feedStore.getList();
-
-    	for (ItemRSSClass rssItem : list) {
-    	  System.out.println("guid: " + rssItem.getGuid());
-    	  System.out.println("title: " + rssItem.getTitle());
-    	  System.out.println("description: " + rssItem.getDescription());
-    	  System.out.println("link: " + rssItem.getLink());
-    	  System.out.println("");
+    	for(String s : Constants.getSubscriptions()) {
+    		RSSFeedRead.read(s, feedStore);
+    		ArrayList<ItemRSSClass> list = feedStore.getList();
+    		for (ItemRSSClass rssItem : list) {
+    			System.out.println("guid: " + rssItem.getGuid());
+    			System.out.println("title: " + rssItem.getTitle());
+    			System.out.println("description: " + rssItem.getDescription());
+    			System.out.println("link: " + rssItem.getLink());
+    			System.out.println("");
+    		}
     	}
     }
-    
 }
