@@ -15,7 +15,6 @@ public class InsertIntoDB {
 		DBclass db = new DBclass();
 		client = db.getInstance();
 		MongoDatabase Db = client.getDatabase("RSSFeed");
-		MongoCollection<TDocument>
-		Dbcoll.save((DBObject) RSSobj);
+		
 	}
 }
