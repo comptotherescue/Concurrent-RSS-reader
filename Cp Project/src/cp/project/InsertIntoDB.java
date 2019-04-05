@@ -20,18 +20,25 @@ import com.mongodb.client.model.DBCollectionCountOptions;
 
 public class InsertIntoDB {
 	MongoClient client = null;
-	public void insert(ItemRSSClass RSSobj) {
-		DBclass db = new DBclass();
+	DBclass db = null;
+	MongoDatabase Db = null;
+	MongoCollection<Document> collection = null;
+	public InsertIntoDB() {
+		db = new DBclass();
 		client = db.getInstance();
-		MongoDatabase Db = client.getDatabase("RSSFeed");
-		MongoIterable<String> collections = Db.listCollectionNames();
-		for(String k : collections) {
-			System.out.println(k);
-		}
+	    Db = client.getDatabase("RSSFeed");
+	    collection = Db.getCollection("ESPN"); 
+	}
+	public InsertIntoDB(MongoClient client,DBclass db,MongoDatabase Db,MongoCollection<Document> collection) {
+		this.db = db;
+		this.client = client;
+		this.Db = Db; 
+		this.collection = collection;
+	}
+	public void insert(ItemRSSClass RSSobj) {
+		
 		Gson gson = new Gson();
 		String json = gson.toJson(RSSobj);              
-		MongoCollection<Document> collection = Db.getCollection("ESPN");  
-		
 		Document doc = new Document("GUID",RSSobj.getGuid()).append("JSON", json);
 		collection.insertOne(doc); 
 	}

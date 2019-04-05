@@ -24,8 +24,8 @@ public class RSSFeedRead {
             RSSSaxHandler handler = new RSSSaxHandler(store);
             saxParser.parse(url, handler);
             ArrayListRSSStoreFeed ar = (ArrayListRSSStoreFeed) store;
-            InsertIntoDB obj = new InsertIntoDB();
-            obj.insert(ar.getList().get(0));
+            RSSInsertUnique obj = new RSSInsertUnique();
+            obj.insertUnique(ar.getList());
             
         } catch (SAXException e) {
             e.printStackTrace();
