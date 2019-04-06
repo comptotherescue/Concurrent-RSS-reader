@@ -7,11 +7,14 @@ package cp.project;
 
 import java.util.ArrayList;
 
+import javafx.util.Pair;
+
 public class CpProject {
 
     public static void main(String[] args) {
     	ArrayListRSSStoreFeed feedStore = new ArrayListRSSStoreFeed();
-    	for(String s : Constants.getSubscriptions()) {
+    	for(Pair<String,String> s : Constants.getSubscriptions()) {
+    		feedStore.clear();
     		RSSFeedRead.read(s, feedStore);
     		ArrayList<ItemRSSClass> list = feedStore.getList();
     		for (ItemRSSClass rssItem : list) {

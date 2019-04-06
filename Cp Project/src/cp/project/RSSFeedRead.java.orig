@@ -11,23 +11,27 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.SAXException;
 
-import javafx.util.Pair;
-
 /**
  *
  * @author akulk
  */
 public class RSSFeedRead {
-    public static void read(Pair<String,String> url, RSSStoreFeed store){
+    public static void read(String url, RSSStoreFeed store){
         try {
             SAXParserFactory spf = SAXParserFactory.newInstance();
             SAXParser saxParser = spf.newSAXParser();
             
             RSSSaxHandler handler = new RSSSaxHandler(store);
-            saxParser.parse(url.getKey(), handler);
+            saxParser.parse(url, handler);
             ArrayListRSSStoreFeed ar = (ArrayListRSSStoreFeed) store;
+<<<<<<< HEAD
             RSSInsertUnique obj = new RSSInsertUnique();
-            obj.insertUnique(ar.getList(),url.getValue());
+            obj.insertUnique(ar.getList());
+=======
+            InsertIntoDB obj = new InsertIntoDB();
+            obj.insert(ar.getList().get(0));
+            //
+>>>>>>> a60efe1e239372a63f51250fa25cb1c783f65904
             
         } catch (SAXException e) {
             e.printStackTrace();
