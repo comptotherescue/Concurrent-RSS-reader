@@ -12,9 +12,9 @@ import javafx.util.Pair;
 public class CpProject {
 
     public static void main(String[] args) {
-    	ArrayListRSSStoreFeed feedStore = new ArrayListRSSStoreFeed();
+    	Constants.init();
     	for(Pair<String,String> s : Constants.getSubscriptions()) {
-    		feedStore.clear();
+    		ArrayListRSSStoreFeed feedStore = new ArrayListRSSStoreFeed();
     		RSSFeedRead.read(s, feedStore);
     		ArrayList<ItemRSSClass> list = feedStore.getList();
     		for (ItemRSSClass rssItem : list) {

@@ -7,10 +7,6 @@ package cp.project;
 
 import java.util.Date;
 
-/**
- *
- * @author akulk
- */
 public class ItemRSSClass {
     private String title;
     private String description;

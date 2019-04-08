@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import com.mongodb.MongoClient;
 
 class DBclassTest {
-
 	@Test
 	void testGetInstance() {
 		DBclass obj = new DBclass();

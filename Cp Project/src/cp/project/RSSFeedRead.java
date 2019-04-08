@@ -22,7 +22,6 @@ public class RSSFeedRead {
         try {
             SAXParserFactory spf = SAXParserFactory.newInstance();
             SAXParser saxParser = spf.newSAXParser();
-            
             RSSSaxHandler handler = new RSSSaxHandler(store);
             saxParser.parse(url.getKey(), handler);
             ArrayListRSSStoreFeed ar = (ArrayListRSSStoreFeed) store;
