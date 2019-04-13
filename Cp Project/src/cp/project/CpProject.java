@@ -19,8 +19,27 @@ public class CpProject {
     	System.out.println(duration);
 	}
 	
+	private static void runParallel(){
+		Constants.init();
+		Thread threads[] = new Thread[4];
+		for(int i = 0 ; i < 4; i++) {
+			threads[i] = new Thread(new ReadParallel());
+			threads[i].start();
+		}
+		
+		for(int i = 0 ; i < 4; i++) {
+			try {
+				threads[i].join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("All Done");
+	}
+	
     public static void main(String[] args) {
     	Constants.init();
-    	runSerial();
+    	//runSerial();
+    	runParallel();
     }
 }

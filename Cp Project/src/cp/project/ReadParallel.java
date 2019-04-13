@@ -9,9 +9,10 @@ public class ReadParallel implements Runnable {
 			int idx = s.getNext();
 			if(Constants.subscriptions.size() > idx) {
 				ArrayListRSSStoreFeed feedStore = new ArrayListRSSStoreFeed();
-				System.out.println(idx);
 				RSSFeedRead.read(Constants.getSubscriptions().get(idx), feedStore);
+				System.out.println(idx);
 			}else {
+				System.out.println("idx greater");
 				break;
 			}
 		}
