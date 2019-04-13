@@ -13,10 +13,6 @@ import org.xml.sax.SAXException;
 
 import javafx.util.Pair;
 
-/**
- *
- * @author akulk
- */
 public class RSSFeedRead {
     public static void read(Pair<String,String> url, RSSStoreFeed store){
         try {

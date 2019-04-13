@@ -14,7 +14,7 @@ public class Constants {
 		subscriptions.add(new Pair<String,String>("http://rss.nytimes.com/services/xml/rss/nyt/US.xml","NYTIMES"));
 		subscriptions.add(new Pair<String,String>("https://feeds.megaphone.fm/LM1344278906","Russell Brand Podcast"));
 		subscriptions.add(new Pair<String,String>("https://www.npr.org/rss/podcast.php?id=510298","NPR"));
-		subscriptions.add(new Pair<String,String>("http://podcastfeeds.nbcnews.com/meetthepress","Post card feeds"));
+		//subscriptions.add(new Pair<String,String>("http://podcastfeeds.nbcnews.com/meetthepress","Post card feeds"));
 	}
 
 	public static List<Pair<String,String>> getSubscriptions() {
