@@ -9,7 +9,7 @@ public class ReadParallel implements Runnable {
 			int idx = s.getNext();
 			if(Constants.subscriptions.size() > idx) {
 				ArrayListRSSStoreFeed feedStore = new ArrayListRSSStoreFeed();
-				RSSFeedRead.read(Constants.getSubscriptions().get(idx), feedStore);
+				RSSFeedRead.read(Constants.getSubscriptions().get(idx), feedStore,"ParallelRss");
 				System.out.println(idx);
 			}else {
 				break;

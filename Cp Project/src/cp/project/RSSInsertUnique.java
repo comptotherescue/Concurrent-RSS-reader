@@ -13,11 +13,14 @@ import com.mongodb.client.MongoDatabase;
 public class RSSInsertUnique {
      MongoClient client = null;
      InsertIntoDB iIDb = null;
-	
+	 String databaseName="";
+	 public RSSInsertUnique(String databaseName) {
+		 this.databaseName = databaseName;
+	 }
      public void insertUnique(ArrayList<ItemRSSClass> list,String Subscription){
 		DBclass db = new DBclass();
 		client = db.getInstance();
-		MongoDatabase Db = client.getDatabase("RSSFeed");
+		MongoDatabase Db = client.getDatabase(databaseName);
 		MongoCollection<Document> collection = Db.getCollection(Subscription);  
 		for(ItemRSSClass itm : list) {
 			Document doc = new Document("GUID",itm.getGuid());

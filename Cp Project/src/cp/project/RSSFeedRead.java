@@ -14,14 +14,14 @@ import org.xml.sax.SAXException;
 import javafx.util.Pair;
 
 public class RSSFeedRead {
-    public static void read(Pair<String,String> url, RSSStoreFeed store){
+    public static void read(Pair<String,String> url, RSSStoreFeed store,String databaseName){
         try {
             SAXParserFactory spf = SAXParserFactory.newInstance();
             SAXParser saxParser = spf.newSAXParser();
             RSSSaxHandler handler = new RSSSaxHandler(store);
             saxParser.parse(url.getKey(), handler);
             ArrayListRSSStoreFeed ar = (ArrayListRSSStoreFeed) store;
-            RSSInsertUnique obj = new RSSInsertUnique();
+            RSSInsertUnique obj = new RSSInsertUnique(databaseName);
             obj.insertUnique(ar.getList(),url.getValue());
             
         } catch (SAXException e) {

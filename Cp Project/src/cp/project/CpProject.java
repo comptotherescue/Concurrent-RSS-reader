@@ -11,7 +11,7 @@ public class CpProject {
 		final long startTime = System.currentTimeMillis();
     	for(Pair<String,String> s : Constants.getSubscriptions()) {
     		ArrayListRSSStoreFeed feedStore = new ArrayListRSSStoreFeed();
-    		RSSFeedRead.read(s, feedStore);
+    		RSSFeedRead.read(s, feedStore,"SerialRss");
     	}
     	final long endTime = System.currentTimeMillis();
     	long duration = endTime - startTime;
