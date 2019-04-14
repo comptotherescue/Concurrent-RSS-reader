@@ -19,6 +19,7 @@ public class RSSFeedRead {
             SAXParserFactory spf = SAXParserFactory.newInstance();
             SAXParser saxParser = spf.newSAXParser();
             RSSSaxHandler handler = new RSSSaxHandler(store);
+            System.setProperty("http.agent", "Chrome");
             saxParser.parse(url.getKey(), handler);
             ArrayListRSSStoreFeed ar = (ArrayListRSSStoreFeed) store;
             RSSInsertUnique obj = new RSSInsertUnique(databaseName);
