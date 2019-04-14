@@ -12,7 +12,6 @@ public class ReadParallel implements Runnable {
 				RSSFeedRead.read(Constants.getSubscriptions().get(idx), feedStore);
 				System.out.println(idx);
 			}else {
-				System.out.println("idx greater");
 				break;
 			}
 		}

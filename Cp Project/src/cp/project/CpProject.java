@@ -21,6 +21,7 @@ public class CpProject {
 	
 	private static void runParallel(){
 		Constants.init();
+		final long startTime = System.currentTimeMillis();
 		Thread threads[] = new Thread[4];
 		for(int i = 0 ; i < 4; i++) {
 			threads[i] = new Thread(new ReadParallel());
@@ -34,12 +35,16 @@ public class CpProject {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("All Done");
+		final long endTime = System.currentTimeMillis();
+		final long duration = endTime - startTime;
+		System.out.println("Total Time Taken : ");
+    	System.out.println(duration);
+		
 	}
 	
     public static void main(String[] args) {
     	Constants.init();
-    	//runSerial();
-    	runParallel();
+    	runSerial();
+    	//runParallel();
     }
 }
