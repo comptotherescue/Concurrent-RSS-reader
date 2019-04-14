@@ -1,5 +1,9 @@
 package cp.project;
 
+import java.util.List;
+
+import javafx.util.Pair;
+
 public class ReadParallel implements Runnable {
 	
 	@Override
@@ -7,9 +11,10 @@ public class ReadParallel implements Runnable {
 		while(true) {
 			Sequencer s = new Sequencer();
 			int idx = s.getNext();
-			if(Constants.subscriptions.size() > idx) {
+			List<Pair<String, String>> list = Constants.getSubscriptions();
+			if( idx < list.size()) {
 				ArrayListRSSStoreFeed feedStore = new ArrayListRSSStoreFeed();
-				RSSFeedRead.read(Constants.getSubscriptions().get(idx), feedStore,"ParallelRss");
+				RSSFeedRead.read(list.get(idx), feedStore,"ParallelRss");
 			}else {
 				break;
 			}
