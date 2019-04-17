@@ -12,7 +12,7 @@ public class ItemRSSClass {
     private String description;
     private String content;
     private String link;
-    private Date pubDate;
+    private String pubDate;
     private String guid;
 
     public String getGuid() {
@@ -47,11 +47,11 @@ public class ItemRSSClass {
         this.link = link;
     }
 
-    public Date getPubDate() {
+    public String getPubDate() {
         return pubDate;
     }
 
-    public void setPubDate(Date pubDate) {
+    public void setPubDate(String pubDate) {
         this.pubDate = pubDate;
     }
 

@@ -67,13 +67,8 @@ class RSSSaxHandler extends DefaultHandler{
 				currentItem.setLink(currentCharacters.toString());
 			}
 			if(currentElement.equalsIgnoreCase("pubDate")) {
-				SimpleDateFormat dateFormatterRssPubDate = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z", Locale.ENGLISH);
-				try{
-					Date parse = dateFormatterRssPubDate.parse(currentCharacters.toString());
-					currentItem.setPubDate(parse);
-				}catch(ParseException e){
-					e.printStackTrace();
-				}
+					currentItem.setPubDate(currentCharacters.toString());
+
 			}
 		}
 	}

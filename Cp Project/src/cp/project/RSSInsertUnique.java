@@ -23,11 +23,13 @@ public class RSSInsertUnique {
 		MongoDatabase Db = client.getDatabase(databaseName);
 		MongoCollection<Document> collection = Db.getCollection(Subscription);  
 		for(ItemRSSClass itm : list) {
-			Document doc = new Document("GUID",itm.getGuid());
-			iIDb = new InsertIntoDB(client,db,Db,collection);
-			FindIterable<Document> cursor = collection.find(doc);
-			if(cursor.first() == null) {
-				iIDb.insert(itm);
+			if(itm.getLink()!=null) {
+				Document doc = new Document("GUID",itm.getGuid());
+				iIDb = new InsertIntoDB(client,db,Db,collection);
+				FindIterable<Document> cursor = collection.find(doc);
+				if(cursor.first() == null) {
+					iIDb.insert(itm);
+				}
 			}
 		}
 	}
