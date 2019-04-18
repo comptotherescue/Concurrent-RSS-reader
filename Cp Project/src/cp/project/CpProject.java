@@ -7,7 +7,7 @@ package cp.project;
 
 public class CpProject {
     public static void main(String[] args) {
-    	Constants.init_huge();
+    	Constants.init_veryLarge();
     	Thread threads[] = new Thread[2];
     	threads[0] = new Thread(new SerialThread());
     	threads[1] = new Thread(new ParallelThread());

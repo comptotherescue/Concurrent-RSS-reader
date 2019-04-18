@@ -88,7 +88,6 @@ class RSSSaxHandler extends DefaultHandler{
 					currentItem.setPubDate(now+"");
 				}
 				currentItem.setPubDate(currentCharacters.toString());
-
 			}
 		}
 	}
