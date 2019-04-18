@@ -7,7 +7,19 @@ router.get('/getCollections' , function(req,res,next){
     if(err){
       res.json(err);
     }else{
-      res.json(items);
+      var collections =[];
+      for(var i = 0; i < items.length; i++){
+        var obj = items[i];
+        console.log("OBJ IS " + obj);
+        for(var key in obj){
+          var Name = key;
+          if(Name == 'name'){
+             var value = obj[key];
+             collections.push({Name:value});
+          }
+        }
+      }
+    res.send(collections);
     }
     })
 });
@@ -18,7 +30,19 @@ router.get('/getCollection/:name' , function(req,res,next){
     if(err){
       res.json(err);
     }else{
-      res.json(docs);
+      var docsjson = [];
+      for(var i = 0; i < docs.length;i++ ){
+        var obj = docs[i];
+        for(var key in obj){
+          var name = key;
+          if(name == 'JSON'){
+            var value = obj[key];
+            console.log(value);
+            docsjson.push(value);
+          }
+        }
+      }
+      res.json(docsjson);
     }
   })
 });

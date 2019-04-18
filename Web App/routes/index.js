@@ -4,11 +4,11 @@ var router = express.Router();
 var db = require('../db')
 
 router.get('/' , function(req,res,next){
-  res.send("hello world")
+  res.render('index.html')
 
   });
 
- var dataBase = db.getDB();
+var dataBase = db.getDB();
 
 
 
