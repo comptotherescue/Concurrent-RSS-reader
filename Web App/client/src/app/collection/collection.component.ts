@@ -13,7 +13,9 @@ export class CollectionComponent implements OnInit {
   collection: Collection;
   constructor(private collectionService :CollectionService) { }
   ngOnInit() {
-    this.collectionService.getCollections();
-    
+    this.collectionService
+    .getCollections()
+    .subscribe();
+
   }
 }

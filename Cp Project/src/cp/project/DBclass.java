@@ -5,7 +5,7 @@ import com.mongodb.MongoClientURI;
 
 public class DBclass {
 	private static MongoClient client = null;
-	public MongoClient getInstance() {
+	public synchronized MongoClient getInstance() {
 		if(client == null) {
 			String conString = Constants.connectionString;
 			MongoClientURI uri = new MongoClientURI(conString);

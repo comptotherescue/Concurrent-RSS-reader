@@ -19,6 +19,7 @@ router.get('/getCollections' , function(req,res,next){
           }
         }
       }
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.send(collections);
     }
     })
@@ -36,12 +37,13 @@ router.get('/getCollection/:name' , function(req,res,next){
         for(var key in obj){
           var name = key;
           if(name == 'JSON'){
-            var value = obj[key];
+            var value = JSON.parse(obj[name]);
             console.log(value);
             docsjson.push(value);
           }
         }
       }
+      res.setHeader('Access-Control-Allow-Origin', '*');
       res.json(docsjson);
     }
   })
