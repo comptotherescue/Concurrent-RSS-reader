@@ -2,6 +2,8 @@ package cp.project;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 
@@ -55,19 +57,37 @@ class RSSSaxHandler extends DefaultHandler{
                 currentItem.setGuid(currentCharacters.toString());
             }
 			if(currentElement.equalsIgnoreCase("title")) {
+				if(currentCharacters.toString().isEmpty())
+				{
+					currentItem.setTitle("Click on the link to read full post.");
+				}
+				else
 				currentItem.setTitle(currentCharacters.toString());
 			}
 			if(currentElement.equalsIgnoreCase("description")) {
+				if(currentCharacters.toString().isEmpty()||currentCharacters.toString().startsWith("<")){
+					currentItem.setDescription("Click on the link to read full post.");
+				}
+				else
 				currentItem.setDescription(currentCharacters.toString());
 			}
 			if(currentElement.equalsIgnoreCase("content:encoded")) {
 				currentItem.setContent(currentCharacters.toString());
 			}	
 			if(currentElement.equalsIgnoreCase("link")) {
+				if(currentCharacters.toString().isEmpty()){
+					currentItem.setLink("Story not available!");
+				}
+				else
 				currentItem.setLink(currentCharacters.toString());
 			}
 			if(currentElement.equalsIgnoreCase("pubDate")) {
-					currentItem.setPubDate(currentCharacters.toString());
+				if(currentCharacters.toString().isEmpty()){
+					DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyy/MM/dd HH:mm:ss");
+					LocalDateTime now = LocalDateTime.now();
+					currentItem.setPubDate(now+"");
+				}
+				currentItem.setPubDate(currentCharacters.toString());
 
 			}
 		}
