@@ -57,7 +57,7 @@ class RSSSaxHandler extends DefaultHandler{
                 currentItem.setGuid(currentCharacters.toString());
             }
 			if(currentElement.equalsIgnoreCase("title")) {
-				if(currentCharacters.toString().isEmpty())
+				if(currentCharacters.toString().trim().isEmpty())
 				{
 					currentItem.setTitle("Click on the link to read full post.");
 				}
@@ -65,7 +65,7 @@ class RSSSaxHandler extends DefaultHandler{
 				currentItem.setTitle(currentCharacters.toString());
 			}
 			if(currentElement.equalsIgnoreCase("description")) {
-				if(currentCharacters.toString().isEmpty()||currentCharacters.toString().startsWith("<")){
+				if(currentCharacters.toString().trim().isEmpty()||currentCharacters.toString().trim().startsWith("<")||currentCharacters.toString().trim().equals("null")){
 					currentItem.setDescription("Click on the link to read full post.");
 				}
 				else
@@ -75,14 +75,14 @@ class RSSSaxHandler extends DefaultHandler{
 				currentItem.setContent(currentCharacters.toString());
 			}	
 			if(currentElement.equalsIgnoreCase("link")) {
-				if(currentCharacters.toString().isEmpty()){
+				if(currentCharacters.toString().trim().isEmpty()){
 					currentItem.setLink("Story not available!");
 				}
 				else
 				currentItem.setLink(currentCharacters.toString());
 			}
 			if(currentElement.equalsIgnoreCase("pubDate")) {
-				if(currentCharacters.toString().isEmpty()){
+				if(currentCharacters.toString().trim().isEmpty()){
 					DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyy/MM/dd HH:mm:ss");
 					LocalDateTime now = LocalDateTime.now();
 					currentItem.setPubDate(now+"");

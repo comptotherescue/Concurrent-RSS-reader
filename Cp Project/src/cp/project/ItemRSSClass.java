@@ -5,6 +5,8 @@
  */
 package cp.project;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class ItemRSSClass {
@@ -15,6 +17,16 @@ public class ItemRSSClass {
     private String pubDate;
     private String guid;
 
+    public ItemRSSClass() {
+    	
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyy/MM/dd HH:mm:ss");
+			LocalDateTime now = LocalDateTime.now();
+			pubDate = now+"";
+			description = "Click on the link to read full post.";
+			title = "Click on the link to read full post.";
+		
+    }
+    
     public String getGuid() {
         return guid;
     }
