@@ -44,7 +44,6 @@ public class Constants {
 		subscriptions.add(new Pair<String,String>("https://www.nasa.gov/rss/dyn/chandra_images.rss","NasaChandraMission"));
 		subscriptions.add(new Pair<String,String>("http://www1.cbn.com/app_feeds/rss/news/rss.php?section=world","CBN"));
 		subscriptions.add(new Pair<String,String>("https://rss.weatherzone.com.au/?u=12994-1285&lt=aploc&lc=12495&obs=1&fc=1&warn=1","WeatherZone"));
-		///
 		subscriptions.add(new Pair<String,String>("https://www.npr.org/rss/podcast.php?id=510298","NPR"));
 		subscriptions.add(new Pair<String,String>("https://business.financialpost.com/feed/","FinancialPost"));
 		subscriptions.add(new Pair<String,String>("https://hacked.com/feed","Hacked"));
@@ -73,7 +72,6 @@ public class Constants {
 		subscriptions.add(new Pair<String,String>("https://www.nasa.gov/rss/dyn/breaking_news.rss","Nasa2"));
 		subscriptions.add(new Pair<String,String>("https://blogs.nasa.gov/stationreport/feed/","NasaISS"));
 		subscriptions.add(new Pair<String,String>("https://www.nasa.gov/rss/dyn/mission_pages/kepler/news/kepler-newsandfeatures-RSS.rss","NasaKeplerMission"));
-		
 	}
 
 	public static List<Pair<String,String>> getSubscriptions() {
