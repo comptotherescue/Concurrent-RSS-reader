@@ -1,17 +1,13 @@
 <!doctype html>
-
 <!-- ASSIGN OUR ANGULAR MODULE -->
 <html ng-app="scotchTodo">
 <head>
 	<!-- META -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
-
 	<title>Node/Angular Todo App</title>
-
 	<!-- SCROLLS -->
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
 	<!-- load bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 	<style>
@@ -20,7 +16,6 @@
 		#todo-list 				{ margin-bottom:30px; }
 		#todo-form 	 			{ margin-bottom:50px; }
 	</style>
-
 	<!-- SPELLS -->
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
 
@@ -46,7 +41,7 @@
 
             		<tr>
                 		<th scope="col">NAME</th>
-            
+
             		</tr>
             		<tr ng-repeat="x in todos" ng-click="onClick(x)" >
                 		<th  scope="row"><a class="text-info">{{x.Name}}</a></th>
@@ -66,16 +61,16 @@
             			<th scope="col">DESCRIPTION</th>
 
                 		<th scope="col">LINK</th>
-                		
-            
+
+
             		</tr>
             		<tr ng-repeat="x in myWelcome" ng-click="onClick(x)" >
             			<th  scope="row"><a >{{x.pubDate}}</a></th>
             			<th  scope="row"><a >{{x.title}}</a></th>
             			<th  scope="row"><a >{{x.description}}</a></th>
 
-                		<th  scope="row"><a class="text-info">{{x.link}}</a></th>
-                		
+                	<th  scope="row"><a href="{{x.link}}" target="_blank" class="text-info">{{x.link}}</a></th>
+
 
             		</tr>
 
@@ -85,8 +80,8 @@
 
 			</div>
 
-		
-		
+
+
 	</div>
 
 </body>
