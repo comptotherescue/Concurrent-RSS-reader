@@ -8,7 +8,6 @@ public class SerialThread implements Runnable{
 
 	@Override
 	public void run() {
-
 		final long startTime = System.currentTimeMillis();
 		List<Pair<String, String>> list = Constants.getSubscriptions();
 		for(int i = 0 ;i < list.size();i++) {
@@ -23,3 +22,5 @@ public class SerialThread implements Runnable{
 	}
 
 }
+
+ 
