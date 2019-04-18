@@ -22,6 +22,6 @@ constructor(private http : HttpClient) { }
 
     // get all Documents
     getCollections(collection) {
-      return this.http.get('http://localhost/3000/api/getCollection/'+collection);
+      return this.http.get('http://localhost:3000/api/getCollection/'+collection);
     }
 }

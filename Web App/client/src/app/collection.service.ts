@@ -11,7 +11,6 @@ export class CollectionService {
 
   // get all Collections
   getCollections() {
-    return this.http.get('http://localhost/3000/api/getCollections')
-    .subscribe();
+    return this.http.get('http://localhost:3000/api/getCollections').subscribe();
   }
 }
